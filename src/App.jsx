@@ -8,6 +8,8 @@ import Store from "./utils/Store";
 import { Provider } from "react-redux";
 import Profile from "./components/Profile";
 import ProtectedRoutes from "./components/ProtectedRoutes";
+import Friends from "./components/Friends";
+import PendingRequests from "./components/PendingRequests";
 function App() {
   return (
     <>
@@ -31,6 +33,22 @@ function App() {
                 element={
                   <ProtectedRoutes>
                     <Profile />
+                  </ProtectedRoutes>
+                }
+              />
+              <Route
+                path="/friends"
+                element={
+                  <ProtectedRoutes>
+                    <Friends />
+                  </ProtectedRoutes>
+                }
+              />
+              <Route
+                path="/pendingrequests"
+                element={
+                  <ProtectedRoutes>
+                    <PendingRequests />
                   </ProtectedRoutes>
                 }
               />

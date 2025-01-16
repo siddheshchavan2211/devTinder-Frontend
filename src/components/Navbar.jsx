@@ -28,7 +28,7 @@ const Navbar = () => {
     }
   };
   return (
-    <div className="fixed top-0 left-0 bg-gradient-to-b from-black  p-6  w-full flex justify-between z-50 ">
+    <div className="fixed top-0 left-0   p-6  w-full flex justify-between z-50 ">
       <Link to="/" onClick={handleHomeClick}>
         {" "}
         <h1 className="text-white text-4xl font-bold"> 🔥devtinder </h1>
@@ -62,12 +62,18 @@ const Navbar = () => {
             >
               Profile
             </Link>
-            <a
-              href="#settings"
+            <Link
+              to="/friends"
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
             >
-              Settings
-            </a>
+              Friends
+            </Link>
+            <Link
+              to="/pendingrequests"
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            >
+              Requests
+            </Link>
             <p
               onClick={handleLogout}
               className="block px-4 py-2 text-sm cursor-pointer text-gray-700 hover:bg-gray-100"
