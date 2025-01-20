@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ApiUrl } from "../utils/Constants";
 import axios from "axios";
 import { removeUser } from "../utils/userSlice";
+import { SiTinder } from "react-icons/si";
 
 const Navbar = () => {
   const location = useLocation();
@@ -31,7 +32,9 @@ const Navbar = () => {
     <div className="fixed top-0 left-0   p-6  w-full flex justify-between z-50 ">
       <Link to="/" onClick={handleHomeClick}>
         {" "}
-        <h1 className="text-white text-4xl font-bold"> 🔥devtinder </h1>
+        <div className="text-white text-4xl font-bold flex gap-1">
+          <SiTinder className="text-pink-500" /> devtinder{" "}
+        </div>
       </Link>
       {!isLoginPage && !isUserLogin && (
         <Link to="/login">
