@@ -19,10 +19,9 @@ const Login = () => {
         { withCredentials: true }
       );
       dispatch(addUser(res.data.LoginUser));
-      // console.log(res.data);
       navigate("/feed");
     } catch (err) {
-      console.log(err);
+      throw new Error(err);
       setErr(err.response.data);
     }
   };
@@ -45,7 +44,7 @@ const Login = () => {
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             required
-            className="w-full h-16 bg-transparent border-none outline-none text-white text-sm pl-2 pr-4 py-3 placeholder:text-white"
+            className="w-full h-16 lg:text-lg lg:placeholder:text-lg placeholder:text-xl text-xl bg-transparent border-none outline-none text-white pl-2 pr-4 py-3 placeholder:text-white "
           />
         </div>
         <div className="relative mb-8  border-b-2 border-white">
@@ -55,7 +54,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             required
-            className="w-full h-16 bg-transparent placeholder:text-white border-none outline-none text-white text-sm pl-2 pr-4 py-3"
+            className="w-full h-16 lg:text-lg lg:placeholder:text-lg placeholder:text-xl text-xl bg-transparent placeholder:text-white border-none outline-none text-white  pl-2 pr-4 py-3"
           />
         </div>
         <div className=" text-white text-center font-bold  my-6">
@@ -70,7 +69,7 @@ const Login = () => {
         </button>
 
         <div className="text-center text-white mt-6">
-          <p className="text-sm">
+          <p className="lg:text-lg lg:placeholder:text-lg placeholder:text-xl text-xl">
             Don&apos;t have an account?
             <Link to="/signup" className="font-semibold hover:underline">
               {" "}

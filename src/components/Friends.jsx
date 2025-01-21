@@ -25,7 +25,7 @@ const Friends = () => {
       dispatch(addFriends(res.data.data)); // Dispatching the friends data to Redux
     } catch (err) {
       setError("Failed to load friends data."); // Setting the error message
-      console.error(err); // Logging the error to the console
+      throw new Error(err); // Logging the error to the console
     } finally {
       setLoading(false); // Turn off loading once data is fetched or error occurs
     }
@@ -37,7 +37,7 @@ const Friends = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
+      <div className="flex justify-center items-center min-h-screen ">
         <p className="text-xl text-gray-700">Loading...</p>
       </div>
     );
@@ -62,9 +62,11 @@ const Friends = () => {
           "url('https://static1.anpoimages.com/wordpress/wp-content/uploads/2023/10/tinder-1-ap-hero.jpg')",
       }}
     >
-      <div className="items-center bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-8 rounded-3xl shadow-lg w-1/2 mx-auto">
+      <div className="items-center bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-8 rounded-3xl shadow-lg w-full lg:w-1/2 mx-auto">
         <header className="text-center mb-8">
-          <h1 className="text-3xl font-semibold text-gray-800">Friends List</h1>
+          <h1 className="text-3xl pt-6 lg:pt-0 font-semibold text-gray-800">
+            Friends List
+          </h1>
         </header>
 
         <div className="mb-6 flex justify-center">
@@ -102,7 +104,7 @@ const Friends = () => {
                     )}
                   </div>
                 </div>
-                <button className="text-blue-500 hover:text-blue-700">
+                <button className="text-blue-500 hover:text-blue-700 text-sm  ">
                   View Profile
                 </button>
               </li>

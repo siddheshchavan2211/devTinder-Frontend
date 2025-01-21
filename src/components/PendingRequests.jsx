@@ -7,7 +7,6 @@ import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 
 const PendingRequests = () => {
-  const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState(null); // Error state
   const requestdata = useSelector((state) => state.showFriends.requests); // Assuming requests is an array
@@ -22,7 +21,7 @@ const PendingRequests = () => {
       dispatch(showRequests(res.data.data)); // Store requests in Redux
     } catch (err) {
       setError("Failed to load requests data."); // Setting the error message
-      console.error(err); // Logging the error to the console
+      throw new Error(err); // Logging the error to the console
     } finally {
       setLoading(false); // Turn off loading once data is fetched or error occurs
     }
@@ -46,9 +45,9 @@ const PendingRequests = () => {
         autoClose: 3000, // 3 seconds
         hideProgressBar: true,
       });
-      console.log(res);
+      throw new Error(res);
     } catch (err) {
-      console.log(err);
+      throw new Error(err);
       toast.error("Something went wrong. Please try again.", {
         position: "top-right",
         autoClose: 3000, // 3 seconds
@@ -71,7 +70,7 @@ const PendingRequests = () => {
 
   if (error) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
+      <div className="flex justify-center items-center  min-h-screen">
         <p className="text-xl text-red-500">{error}</p>
       </div>
     );
@@ -89,22 +88,12 @@ const PendingRequests = () => {
       }}
     >
       <ToastContainer />
-      <div className="items-center bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-8 rounded-3xl shadow-lg w-1/2 mx-auto">
+      <div className="items-center pt-14  bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 lg:p-8 p-1 rounded-3xl shadow-lg w-full lg:w-1/2 mx-auto">
         <header className="text-center mb-8">
           <h1 className="text-3xl font-semibold text-gray-800">
             Pending Requests
           </h1>
         </header>
-
-        <div className="mb-6 flex justify-center">
-          <input
-            type="text"
-            placeholder="Search requests..."
-            className="p-3 w-full max-w-md border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </div>
 
         <ul className="space-y-4">
           {requestdata && requestdata.length > 0 ? (
@@ -126,7 +115,7 @@ const PendingRequests = () => {
                       className="w-12 h-12 rounded-full"
                     />
                     <div>
-                      <p className="text-lg font-medium text-gray-700">
+                      <p className="text-lg font-bold lg:font-medium text-gray-700">
                         {firstName + " " + lastName}
                       </p>
                       {age && gender && (
@@ -136,15 +125,15 @@ const PendingRequests = () => {
                       )}
                     </div>
                   </div>
-                  <div className="gap-4 flex">
+                  <div className="lg:gap-4 gap-1 flex ">
                     <button
-                      className="text-white bg-green-600 p-2 rounded-lg hover:bg-green-800"
+                      className="text-white p-2  bg-green-600 text-sm rounded-lg hover:bg-green-800"
                       onClick={() => handleRequest("Accepted", request._id)}
                     >
                       Accept
                     </button>
                     <button
-                      className="text-white bg-red-600 p-2 rounded-lg hover:text-red-800"
+                      className="text-white bg-red-600  p-2 text-sm rounded-lg hover:text-red-800"
                       onClick={() => handleRequest("Rejected", request._id)}
                     >
                       Reject

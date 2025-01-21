@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* src/index.css or src/styles.css */
+
+body {
+  font-family: "Teachers", sans-serif;
+}

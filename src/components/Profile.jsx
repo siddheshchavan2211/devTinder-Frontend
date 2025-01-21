@@ -51,7 +51,7 @@ const Profile = () => {
       setErrors("");
     } catch (err) {
       setErrors(err.response.data);
-      console.log(err);
+      throw new Error(err);
       toast.error("Something went wrong. Please try again.", {
         position: "top-right",
         autoClose: 3000, // 3 seconds
@@ -137,14 +137,14 @@ const Profile = () => {
         <div className="w-full flex flex-col gap-6 mt-8">
           <div className="flex gap-4">
             <div className="w-1/2">
-              <label htmlFor="first-name" className="text-white">
+              <label htmlFor="first-name" className="text-white ">
                 First Name
               </label>
               <input
                 type="text"
                 id="first-name"
                 placeholder="First Name"
-                className="mt-2 py-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="mt-2 py-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 pl-2"
                 onChange={(e) => setFname(e.target.value)}
                 value={FirstName}
               />
@@ -157,7 +157,7 @@ const Profile = () => {
                 type="text"
                 id="last-name"
                 placeholder="Last Name"
-                className="mt-2 py-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="mt-2 py-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 pl-2"
                 onChange={(e) => setLname(e.target.value)}
                 value={LastName}
               />
@@ -172,7 +172,7 @@ const Profile = () => {
               type="text"
               id="Skills"
               placeholder="Enter your Skills"
-              className="mt-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
+              className="mt-2 pl-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
               onChange={(e) => setSkills(e.target.value)}
               value={Skills}
             />
@@ -185,7 +185,7 @@ const Profile = () => {
               type="text"
               id="About"
               placeholder="Tell us About yourself"
-              className="mt-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
+              className="mt-2 pl-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
               onChange={(e) => setAbout(e.target.value)}
               value={About}
             />
@@ -200,7 +200,7 @@ const Profile = () => {
                 type="text"
                 id="Age"
                 placeholder="Enter your Age"
-                className="mt-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
+                className="mt-2 pl-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
                 onChange={(e) => setAge(e.target.value)}
                 value={Age}
               />
@@ -259,7 +259,7 @@ const Profile = () => {
               type="text"
               id="Mobile"
               placeholder="Enter your Mobile number"
-              className="mt-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
+              className="mt-2 pl-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
               onChange={(e) => setMobile(e.target.value)}
               value={Mobile}
             />

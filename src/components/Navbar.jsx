@@ -23,22 +23,23 @@ const Navbar = () => {
     try {
       await axios.post(ApiUrl + "/logout", {}, { withCredentials: true });
       dispatch(removeUser());
+
       navigate("/");
     } catch (err) {
-      console.log(err);
+      throw new Error(err);
     }
   };
   return (
     <div className="fixed top-0 left-0   p-6  w-full flex justify-between z-50 ">
       <Link to="/" onClick={handleHomeClick}>
         {" "}
-        <div className="text-white text-4xl font-bold flex gap-1">
-          <SiTinder className="text-pink-500" /> devtinder{" "}
+        <div className="items-center text-white  text-4xl font-bold flex gap-1">
+          <SiTinder className="lg:size-11 size-10 text-red-400" /> Devtinder{" "}
         </div>
       </Link>
       {!isLoginPage && !isUserLogin && (
         <Link to="/login">
-          <button className="bg-white border-0 text-black py-2 px-8 rounded-full">
+          <button className="bg-white border-0 text-black px-4 py-2 lg:px-8 rounded-full">
             Login
           </button>
         </Link>

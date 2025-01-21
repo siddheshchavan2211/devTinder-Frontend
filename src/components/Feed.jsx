@@ -12,9 +12,8 @@ const Feed = () => {
     try {
       const res = await axios.get(ApiUrl + "/feed", { withCredentials: true });
       dispatch(addFeed(res.data.data));
-      // console.log(res.data.data);
     } catch (err) {
-      console.log(err);
+      throw new Error(err);
     }
   };
 
@@ -39,7 +38,7 @@ const Feed = () => {
           backgroundImage: `url(${"https://png.pngtree.com/background/20230616/original/pngtree-faceted-abstract-background-in-3d-with-shimmering-iridescent-metallic-texture-of-picture-image_3653595.jpg"})`,
         }}
       >
-        <h1 className=" flex justify-center my-28 text-4xl text-white font-bold">
+        <h1 className=" flex justify-center my-28 text-3xl lg:text-4xl text-white font-bold">
           No More Match Founds
         </h1>
       </div>

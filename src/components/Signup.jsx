@@ -22,16 +22,15 @@ const Signup = () => {
         { withCredentials: true }
       );
       dispatch(addUser(res.data.LoginUser));
-      // console.log(res.data);
       navigate("/login");
     } catch (err) {
-      console.log(err);
+      throw new Error(err);
       setErr(err.response.data);
     }
   };
   return (
     <div
-      className="flex justify-center items-center h-screen bg-cover bg-center bg-no-repeat"
+      className=" pt-20 flex justify-center items-center h-screen bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage:
           "url('https://images.unsplash.com/photo-1668871333606-ef8461d43922?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
@@ -48,7 +47,7 @@ const Signup = () => {
             onChange={(e) => setFirstName(e.target.value)}
             value={firstName}
             required
-            className="w-full h-16 bg-transparent border-none outline-none text-white text-sm pl-2 pr-4 py-3 placeholder:text-white"
+            className="w-full h-16 bg-transparent border-none outline-none text-white lg:text-lg lg:placeholder:text-lg placeholder:text-xl text-xl pl-2 pr-4 py-3 placeholder:text-white"
           />
         </div>
         <div className="relative mb-8  border-b-2 border-white">
@@ -58,7 +57,7 @@ const Signup = () => {
             onChange={(e) => setLastName(e.target.value)}
             value={lastName}
             required
-            className="w-full h-16 bg-transparent border-none outline-none text-white text-sm pl-2 pr-4 py-3 placeholder:text-white"
+            className="w-full lg:text-lg lg:placeholder:text-lg placeholder:text-xl text-xl h-16 bg-transparent border-none outline-none text-white pl-2 pr-4 py-3 placeholder:text-white"
           />
         </div>
         <div className="relative mb-8  border-b-2 border-white">
@@ -68,7 +67,7 @@ const Signup = () => {
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             required
-            className="w-full h-16 bg-transparent border-none outline-none text-white text-sm pl-2 pr-4 py-3 placeholder:text-white"
+            className="w-full h-16 bg-transparent border-none outline-none text-white lg:text-lg lg:placeholder:text-lg placeholder:text-xl text-xl pl-2 pr-4 py-3 placeholder:text-white"
           />
         </div>
         <div className="relative mb-8  border-b-2 border-white">
@@ -78,7 +77,7 @@ const Signup = () => {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             required
-            className="w-full h-16 bg-transparent placeholder:text-white border-none outline-none text-white text-sm pl-2 pr-4 py-3"
+            className="w-full h-16 bg-transparent placeholder:text-white border-none outline-none text-white lg:text-lg lg:placeholder:text-lg placeholder:text-xl text-xl pl-2 pr-4 py-3"
           />
         </div>
         <div className=" text-white text-center font-bold  my-6">
@@ -93,7 +92,7 @@ const Signup = () => {
         </button>
 
         <div className="text-center text-white mt-6">
-          <p className="text-sm">
+          <p className=" lg:text-lg lg:placeholder:text-lg placeholder:text-xl text-xl">
             Already have an account?
             <Link to="/login" className="font-semibold hover:underline">
               {" "}

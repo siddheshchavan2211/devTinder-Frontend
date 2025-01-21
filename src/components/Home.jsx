@@ -7,13 +7,13 @@ const Home = () => {
       <div className="relative h-screen w-full bg-gradient-to-t from-black">
         <div>
           <img
-            className="absolute top-0 left-0 w-full h-full object-cover -z-10"
+            className="absolute top-0 left-0  w-full h-full object-cover -z-10"
             src={TinderBg}
             alt="bgimg"
           />
         </div>
         <div className="flex flex-col justify-center items-center w-full h-full top-0 left-0 ">
-          <h1 className="text-8xl font-bold text-white ">
+          <h1 className="lg:text-8xl text-3xl font-bold text-white ">
             Start something epic.
           </h1>
           <Link to="/signup">
