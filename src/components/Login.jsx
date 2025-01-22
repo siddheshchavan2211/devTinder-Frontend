@@ -8,8 +8,8 @@ import { addUser } from "../utils/userSlice";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [email, setEmail] = useState("siddhesh2@gmail.com");
-  const [password, setPassword] = useState("Siddhesh@123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [err, setErr] = useState("");
   const handleSubmit = async () => {
     try {
