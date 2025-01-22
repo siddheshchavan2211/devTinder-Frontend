@@ -18,7 +18,7 @@ const FeedCard = ({ data }) => {
       );
       dispatch(filterfeed(userId));
     } catch (err) {
-      throw new Error(err);
+      console.log(err);
     }
   };
 

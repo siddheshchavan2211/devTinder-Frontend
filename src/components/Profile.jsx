@@ -51,7 +51,7 @@ const Profile = () => {
       setErrors("");
     } catch (err) {
       setErrors(err.response.data);
-      throw new Error(err);
+      console.log(err);
       toast.error("Something went wrong. Please try again.", {
         position: "top-right",
         autoClose: 3000, // 3 seconds

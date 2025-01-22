@@ -25,7 +25,7 @@ const Friends = () => {
       dispatch(addFriends(res.data.data)); // Dispatching the friends data to Redux
     } catch (err) {
       setError("Failed to load friends data."); // Setting the error message
-      throw new Error(err); // Logging the error to the console
+      console.log(err); // Logging the error to the console
     } finally {
       setLoading(false); // Turn off loading once data is fetched or error occurs
     }

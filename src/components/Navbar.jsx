@@ -26,7 +26,7 @@ const Navbar = () => {
 
       navigate("/");
     } catch (err) {
-      throw new Error(err);
+      console.log(err);
     }
   };
   return (

@@ -24,7 +24,7 @@ const Signup = () => {
       dispatch(addUser(res.data.LoginUser));
       navigate("/login");
     } catch (err) {
-      throw new Error(err);
+      console.log(err);
       setErr(err.response.data);
     }
   };

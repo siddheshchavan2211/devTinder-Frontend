@@ -13,7 +13,7 @@ const Feed = () => {
       const res = await axios.get(ApiUrl + "/feed", { withCredentials: true });
       dispatch(addFeed(res.data.data));
     } catch (err) {
-      throw new Error(err);
+      console.log(err);
     }
   };
 

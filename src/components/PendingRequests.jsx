@@ -21,7 +21,7 @@ const PendingRequests = () => {
       dispatch(showRequests(res.data.data)); // Store requests in Redux
     } catch (err) {
       setError("Failed to load requests data."); // Setting the error message
-      throw new Error(err); // Logging the error to the console
+      console.log(err); // Logging the error to the console
     } finally {
       setLoading(false); // Turn off loading once data is fetched or error occurs
     }
@@ -45,9 +45,9 @@ const PendingRequests = () => {
         autoClose: 3000, // 3 seconds
         hideProgressBar: true,
       });
-      throw new Error(res);
+      console.log(res);
     } catch (err) {
-      throw new Error(err);
+      console.log(err);
       toast.error("Something went wrong. Please try again.", {
         position: "top-right",
         autoClose: 3000, // 3 seconds
