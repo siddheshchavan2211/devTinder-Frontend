@@ -20,7 +20,7 @@ const Body = () => {
       // if (err.response.status === 400) {
       //   navigate("/login");
       // }
-      console.log(err);
+      console.error(err);
     }
   };
   useEffect(() => {

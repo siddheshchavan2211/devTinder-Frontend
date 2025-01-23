@@ -45,7 +45,6 @@ const PendingRequests = () => {
         autoClose: 3000, // 3 seconds
         hideProgressBar: true,
       });
-      console.log(res);
     } catch (err) {
       console.log(err);
       toast.error("Something went wrong. Please try again.", {
