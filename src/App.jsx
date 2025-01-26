@@ -10,6 +10,8 @@ import Profile from "./components/Profile";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import Friends from "./components/Friends";
 import PendingRequests from "./components/PendingRequests";
+import Footer from "./components/Footer";
+import BusinessPolicy from "./components/BusinessPolicy";
 function App() {
   return (
     <>
@@ -53,6 +55,8 @@ function App() {
                 }
               />
             </Route>
+            <Route path="/footer" element={<Footer />} />
+            <Route path="/businesspolicy" element={<BusinessPolicy />} />
           </Routes>
         </BrowserRouter>
       </Provider>

@@ -5,6 +5,7 @@ import { ApiUrl } from "../utils/Constants";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { addUser } from "../utils/userSlice";
+import Footer from "./Footer";
 const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ const Body = () => {
     <div>
       <Navbar />
       <Outlet />
+      <Footer />
     </div>
   );
 };
