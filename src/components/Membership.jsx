@@ -1,6 +1,36 @@
+import axios from "axios";
 import { SiTinder } from "react-icons/si";
+import { ApiUrl, RazorpayKeyId } from "../utils/Constants";
 
 const Membership = () => {
+  const handlesubmit = async (type) => {
+    const subscription = await axios.post(
+      ApiUrl + "/payment/create",
+      { membershipType: type },
+      { withCredentials: true }
+    );
+    const { amount, currency, notes, orderId } = subscription.data;
+    console.log(subscription);
+    const { firstName, lastName, email, mobile } = notes;
+    const options = {
+      key: RazorpayKeyId,
+      amount,
+      currency,
+      name: "Devtinder",
+      description: "make friends",
+      order_id: orderId,
+      prefill: {
+        name: `${firstName} " " ${lastName}`,
+        email: email,
+        contact: mobile,
+      },
+      theme: {
+        color: "#ff3399",
+      },
+    };
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+  };
   return (
     <div className="bg-red-300 h-screen">
       <div className="flex flex-col justify-center mx-auto py-20  items-center  ">
@@ -29,7 +59,10 @@ const Membership = () => {
               <li>New Top Picks every day</li>
               <li>And everything you love from Tinder Plus®!</li>
             </ul>
-            <button className="bg-yellow-600 border-0 flex text-white p-4 justify-center items-center mx-auto rounded-full">
+            <button
+              onClick={() => handlesubmit("GOLD")}
+              className="bg-yellow-600 border-0 flex text-white p-4 justify-center items-center mx-auto rounded-full"
+            >
               Join Now
             </button>
           </div>
@@ -51,7 +84,10 @@ const Membership = () => {
               <li>New Top Picks every day</li>
               <li>And everything you love from Tinder Plus®!</li>
             </ul>
-            <button className="bg-slate-5   00 border-0 flex text-white p-4 justify-center items-center mx-auto rounded-full">
+            <button
+              onClick={() => handlesubmit("PLATINUM")}
+              className="bg-slate-500 border-0 flex text-white p-4 justify-center items-center mx-auto rounded-full"
+            >
               Join Now
             </button>
           </div>
