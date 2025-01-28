@@ -78,6 +78,12 @@ const Navbar = () => {
             >
               Requests
             </Link>
+            <Link
+              to="/subscription"
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            >
+              Subscription
+            </Link>
             <p
               onClick={handleLogout}
               className="block px-4 py-2 text-sm cursor-pointer text-gray-700 hover:bg-gray-100"

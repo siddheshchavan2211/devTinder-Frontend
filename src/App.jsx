@@ -12,6 +12,7 @@ import Friends from "./components/Friends";
 import PendingRequests from "./components/PendingRequests";
 import Footer from "./components/Footer";
 import BusinessPolicy from "./components/BusinessPolicy";
+import Membership from "./components/Membership";
 function App() {
   return (
     <>
@@ -54,6 +55,7 @@ function App() {
                   </ProtectedRoutes>
                 }
               />
+              <Route path="/subscription" element={<Membership />} />
             </Route>
             <Route path="/footer" element={<Footer />} />
             <Route path="/businesspolicy" element={<BusinessPolicy />} />
