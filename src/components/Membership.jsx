@@ -1,8 +1,22 @@
 import axios from "axios";
 import { SiTinder } from "react-icons/si";
 import { ApiUrl, RazorpayKeyId } from "../utils/Constants";
+import { useState } from "react";
 
 const Membership = () => {
+  const [status, setStatus] = useState(false);
+  const verifySubscripitonUser = async () => {
+    try {
+      const res = await axios.get(ApiUrl + "/subscription/verify", {
+        withCredentials: true,
+      });
+      if (res.data.subscriptionStatus) {
+        setStatus(true);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const handlesubmit = async (type) => {
     const subscription = await axios.post(
       ApiUrl + "/payment/create",
@@ -27,11 +41,16 @@ const Membership = () => {
       theme: {
         color: "#ff3399",
       },
+      handler: verifySubscripitonUser,
     };
     const rzp = new window.Razorpay(options);
     rzp.open();
   };
-  return (
+  return status ? (
+    <h1 className="text-5xl font-bold italic mb-4 text-white">
+      You are already a Premium Member
+    </h1>
+  ) : (
     <div className="bg-red-300 h-screen">
       <div className="flex flex-col justify-center mx-auto py-20  items-center  ">
         <h1 className="text-5xl font-bold italic mb-4 text-white">
