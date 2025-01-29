@@ -50,9 +50,13 @@ const Membership = () => {
     rzp.open();
   };
   return status ? (
-    <h1 className="text-5xl font-bold italic mb-4 text-white">
-      You are already a Premium Member
-    </h1>
+    <div className="bg-red-300 h-screen">
+      <div className="flex flex-col justify-center mx-auto py-20  items-center  ">
+        <h1 className="text-5xl font-bold italic mb-4 text-white">
+          You are already a Premium Member
+        </h1>
+      </div>
+    </div>
   ) : (
     <div className="bg-red-300 h-screen">
       <div className="flex flex-col justify-center mx-auto py-20  items-center  ">
