@@ -1,10 +1,13 @@
 import axios from "axios";
 import { SiTinder } from "react-icons/si";
 import { ApiUrl, RazorpayKeyId } from "../utils/Constants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Membership = () => {
   const [status, setStatus] = useState(false);
+  useEffect(() => {
+    verifySubscripitonUser();
+  }, []);
   const verifySubscripitonUser = async () => {
     try {
       const res = await axios.get(ApiUrl + "/subscription/verify", {
