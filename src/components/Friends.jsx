@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ApiUrl } from "../utils/Constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addFriends } from "../utils/showFriendsSlice";
+import { Link } from "react-router-dom";
 
 const Friends = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -104,9 +105,11 @@ const Friends = () => {
                     )}
                   </div>
                 </div>
-                <button className="text-blue-500 hover:text-blue-700 text-sm  ">
-                  View Profile
-                </button>
+                <Link to={"/chat/" + friend._id}>
+                  <button className="text-blue-500 hover:text-blue-700 text-lg font-bold cursor-pointer   ">
+                    Chat
+                  </button>
+                </Link>
               </li>
             ))
           ) : (

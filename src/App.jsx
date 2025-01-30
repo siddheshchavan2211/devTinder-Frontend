@@ -13,6 +13,7 @@ import PendingRequests from "./components/PendingRequests";
 import Footer from "./components/Footer";
 import BusinessPolicy from "./components/BusinessPolicy";
 import Membership from "./components/Membership";
+import Chat from "./components/Chat";
 function App() {
   return (
     <>
@@ -52,6 +53,14 @@ function App() {
                 element={
                   <ProtectedRoutes>
                     <PendingRequests />
+                  </ProtectedRoutes>
+                }
+              />
+              <Route
+                path="/chat/:userid"
+                element={
+                  <ProtectedRoutes>
+                    <Chat />
                   </ProtectedRoutes>
                 }
               />
