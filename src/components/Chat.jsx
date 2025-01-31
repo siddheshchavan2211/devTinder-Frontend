@@ -36,61 +36,53 @@ const Chat = () => {
     });
     setnewmessage("");
   };
+
   return (
-    <div className="flex flex-col h-[600px] justify-center mx-auto mt-20 w-3/4 bg-gray-100 rounded-lg overflow-hidden shadow-xl">
+    <div className="flex flex-col h-[600px]  w-3/4 mx-auto mt-10 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg overflow-hidden shadow-2xl">
       {/* Header */}
-      <div className="bg-red-400 text-white p-4 flex items-center justify-between">
+      <div className="bg-gradient-to-r from-pink-400 to-red-500 text-white p-4 flex items-center justify-between rounded-t-lg">
         <div className="flex items-center space-x-3">
-          <div>
-            <h2 className="font-semibold">Chat </h2>
-          </div>
+          <h2 className="text-2xl font-semibold">Chat</h2>
         </div>
-        <div className="flex space-x-4"></div>
       </div>
 
       {/* Messages */}
-      {messages.map((msg) => (
-        <div
-          key={crypto.randomUUID()}
-          className="flex-1 overflow-y-auto p-4 space-y-4"
-        >
-          <div className="chat chat-start flex gap-3 items-center">
+      <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 rounded-b-lg">
+        {messages.map((msg) => (
+          <div key={crypto.randomUUID()} className="flex gap-4 items-center">
             <div className="chat-image avatar">
-              <div className="w-10 h-10 rounded-full">
+              <div className="w-12 h-12 rounded-full overflow-hidden">
                 <img
-                  className="w-10 h-10 rounded-full"
+                  className="w-full h-full object-cover"
                   alt="Avatar"
                   src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
                 />
               </div>
             </div>
-            <div className="chat-bubble max-w-[70%] p-3 rounded-lg bg-white text-gray-800">
-              {msg?.text}
-              <span>{msg.firstName}</span>
+            <div className="chat-bubble max-w-[75%] p-4 rounded-lg bg-white text-gray-800 shadow-md">
+              <span className="font-semibold">{msg.firstName}</span>: {msg.text}
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
 
       {/* Input area */}
-      <form onSubmit={""} className="bg-white p-4 flex items-center space-x-2">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-4 flex items-center space-x-3 rounded-b-lg shadow-md"
+      >
         <input
           type="text"
           value={newmessage}
           placeholder="Type a message..."
-          onChange={(e) => {
-            setnewmessage(e.target.value);
-          }}
-          className="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          onChange={(e) => setnewmessage(e.target.value)}
+          className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
         <button
           type="submit"
-          onClick={(e) => {
-            handleSubmit(e);
-          }}
-          className="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="bg-blue-600 text-white rounded-full p-3 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
-          Send
+          <i className="fas fa-paper-plane"></i>
         </button>
       </form>
     </div>
