@@ -71,8 +71,8 @@ const Chat = () => {
 
       {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 rounded-b-lg">
-        {messages.map((msg) => (
-          <div key={crypto.randomUUID()}>
+        {messages.map((msg, index) => (
+          <div key={index}>
             <div
               className={`chat ${
                 userData.firstName === msg.firstName ? "chat-end" : "chat-start"
