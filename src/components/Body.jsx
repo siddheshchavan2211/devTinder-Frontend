@@ -28,7 +28,7 @@ const Body = () => {
     isUserLogin();
   }, []);
   return (
-    <div>
+    <div className="bg-white">
       <Navbar />
       <Outlet />
       <Footer />

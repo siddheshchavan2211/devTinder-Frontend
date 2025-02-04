@@ -74,7 +74,7 @@ const Friends = () => {
           <input
             type="text"
             placeholder="Search friends..."
-            className="p-3 w-full max-w-md border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="p-3 w-full max-w-md border rounded-md border-gray-300 focus:outline-none bg-white focus:ring-2 focus:ring-indigo-500"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />

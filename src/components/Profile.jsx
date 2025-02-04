@@ -119,7 +119,7 @@ const Profile = () => {
               placeholder="Enter Image URL"
               value={selectedImage}
               onChange={handleUrlChange}
-              className="py-2 px-4 w-64 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+              className="py-2 px-4 w-64 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 bg-white"
             />
           </div>
         ) : (
@@ -137,14 +137,14 @@ const Profile = () => {
         <div className="w-full flex flex-col gap-6 mt-8">
           <div className="flex gap-4">
             <div className="w-1/2">
-              <label htmlFor="first-name" className="text-white ">
+              <label htmlFor="first-name" className="text-white   ">
                 First Name
               </label>
               <input
                 type="text"
                 id="first-name"
                 placeholder="First Name"
-                className="mt-2 py-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 pl-2"
+                className="mt-2 py-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 pl-2 bg-white"
                 onChange={(e) => setFname(e.target.value)}
                 value={FirstName}
               />
@@ -157,7 +157,7 @@ const Profile = () => {
                 type="text"
                 id="last-name"
                 placeholder="Last Name"
-                className="mt-2 py-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 pl-2"
+                className="mt-2 py-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 pl-2 bg-white"
                 onChange={(e) => setLname(e.target.value)}
                 value={LastName}
               />
@@ -172,7 +172,7 @@ const Profile = () => {
               type="text"
               id="Skills"
               placeholder="Enter your Skills"
-              className="mt-2 pl-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
+              className="mt-2 pl-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full  bg-white"
               onChange={(e) => setSkills(e.target.value)}
               value={Skills}
             />
@@ -185,7 +185,7 @@ const Profile = () => {
               type="text"
               id="About"
               placeholder="Tell us About yourself"
-              className="mt-2 pl-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
+              className="mt-2 pl-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full  bg-white"
               onChange={(e) => setAbout(e.target.value)}
               value={About}
             />
@@ -200,7 +200,7 @@ const Profile = () => {
                 type="text"
                 id="Age"
                 placeholder="Enter your Age"
-                className="mt-2 pl-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
+                className="mt-2 pl-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full  bg-white"
                 onChange={(e) => setAge(e.target.value)}
                 value={Age}
               />
@@ -217,9 +217,9 @@ const Profile = () => {
                     id="male"
                     checked={Gender === "male"}
                     onChange={(e) => setGender(e.target.id)}
-                    className="mr-2 w-4 h-4"
+                    className="mr-2 w-4 h-4 bg-white border-2 border-gray-500 appearance-none rounded-full checked:bg-blue-500"
                   />
-                  <label htmlFor="male" className="text-white">
+                  <label htmlFor="male" className="text-white  ">
                     Male
                   </label>
                 </div>
@@ -229,9 +229,9 @@ const Profile = () => {
                     id="female"
                     checked={Gender === "female"}
                     onChange={(e) => setGender(e.target.id)}
-                    className="mr-2 w-4 h-4"
+                    className="mr-2 w-4 h-4 bg-white border-2 border-gray-500 appearance-none rounded-full checked:bg-blue-500"
                   />
-                  <label htmlFor="female" className="text-white">
+                  <label htmlFor="female" className="text-white  ">
                     Female
                   </label>
                 </div>
@@ -241,9 +241,9 @@ const Profile = () => {
                     checked={Gender === "other"}
                     onChange={(e) => setGender(e.target.id)}
                     id="other"
-                    className="mr-2 w-4 h-4"
+                    className="mr-2 w-4 h-4 bg-white border-2 border-gray-500 appearance-none rounded-full checked:bg-blue-500"
                   />
-                  <label htmlFor="other" className="text-white">
+                  <label htmlFor="other" className="text-white  ">
                     Other
                   </label>
                 </div>
@@ -259,7 +259,7 @@ const Profile = () => {
               type="text"
               id="Mobile"
               placeholder="Enter your Mobile number"
-              className="mt-2 pl-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
+              className="mt-2 pl-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 w-full  bg-white "
               onChange={(e) => setMobile(e.target.value)}
               value={Mobile}
             />
@@ -267,7 +267,7 @@ const Profile = () => {
           <p className="text-white font-semibold">{errors}</p>
           <button
             onClick={handlesubmit}
-            className="bg-cyan-600 text-white rounded-lg mt-6 px-6 py-3 hover:bg-cyan-700 transition duration-300"
+            className="bg-cyan-600 text-white rounded-lg mt-6 px-6 py-3 hover:bg-cyan-700 transition duration-300 "
           >
             Save Changes
           </button>

@@ -38,7 +38,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="flex flex-col h-[600px]  w-3/4 mx-auto mt-10 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg overflow-hidden shadow-2xl">
+    <div className="flex flex-col h-[600px]    w-3/4 mx-auto  bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg overflow-hidden shadow-2xl">
       {/* Header */}
       <div className="bg-gradient-to-r from-pink-400 to-red-500 text-white p-4 flex items-center justify-between rounded-t-lg">
         <div className="flex items-center space-x-3">
@@ -46,23 +46,29 @@ const Chat = () => {
         </div>
       </div>
 
-      {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 rounded-b-lg">
         {messages.map((msg) => (
-          <div key={crypto.randomUUID()} className="flex gap-4 items-center">
-            <div className="chat-image avatar">
-              <div className="w-12 h-12 rounded-full overflow-hidden">
-                <img
-                  className="w-full h-full object-cover"
-                  alt="Avatar"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                />
+          <>
+            <div
+              key={crypto.randomUUID()}
+              className={`chat ${
+                userData.firstName === msg.firstName ? "chat-end" : "chat-start"
+              }`}
+            >
+              <div className="chat-image avatar">
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="Tailwind CSS chat bubble component"
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  />
+                </div>
+              </div>
+              <div className="chat-bubble bg-white text-black">
+                <span className="font-semibold">{msg.firstName}</span>:{" "}
+                {msg.text}
               </div>
             </div>
-            <div className="chat-bubble max-w-[75%] p-4 rounded-lg bg-white text-gray-800 shadow-md">
-              <span className="font-semibold">{msg.firstName}</span>: {msg.text}
-            </div>
-          </div>
+          </>
         ))}
       </div>
 
@@ -76,7 +82,7 @@ const Chat = () => {
           value={newmessage}
           placeholder="Type a message..."
           onChange={(e) => setnewmessage(e.target.value)}
-          className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="flex-1 border bg-white text-black border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
         <button
           type="submit"
