@@ -2,6 +2,10 @@ import io from "socket.io-client";
 import { ApiUrl } from "./Constants";
 
 const createsocketconn = () => {
-  return io(ApiUrl);
+  if (location.hostname === "localhost") {
+    return io(ApiUrl);
+  } else {
+    return io("/", { path: "/api/socket.io" });
+  }
 };
 export default createsocketconn;
